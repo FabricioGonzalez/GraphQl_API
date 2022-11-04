@@ -1,4 +1,4 @@
-namespace GraphQl_API
+namespace GraphQl_API.Schemas
 {
     public class WeatherForecast
     {

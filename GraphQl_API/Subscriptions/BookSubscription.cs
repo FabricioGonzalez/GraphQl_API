@@ -1,4 +1,6 @@
-﻿namespace GraphQl_API.Subscriptions
+﻿using GraphQl_API.Schemas;
+
+namespace GraphQl_API.Subscriptions
 {
     public class BookSubscription
     {

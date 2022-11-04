@@ -2,6 +2,11 @@ using GraphQl_API.Mutations;
 using GraphQl_API.Queries;
 using GraphQl_API.Subscriptions;
 
+using Graphql_Repository;
+using Graphql_Repository.Repository;
+
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<DbContext,DatabaseContext>();
+
+builder.Services.AddScoped<BookOperations>();
 
 builder.Services
     .AddGraphQLServer()

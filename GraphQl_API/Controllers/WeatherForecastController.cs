@@ -1,3 +1,4 @@
+using GraphQl_API.Schemas;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GraphQl_API.Controllers

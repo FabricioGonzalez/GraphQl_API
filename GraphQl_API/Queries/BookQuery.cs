@@ -1,15 +1,16 @@
-﻿namespace GraphQl_API.Queries
+﻿using GraphQl_API.Schemas;
+
+using Graphql_Repository.Repository;
+
+namespace GraphQl_API.Queries
 {
     public class BookQuery
     {
-        public Book GetBook() =>
-            new Book
-            {
-                Title = "C# in depth.",
-                Author = new Author
-                {
-                    Name = "Jon Skeet"
-                }
-            };
+        BookOperations operations;
+        public BookQuery(BookOperations bookOperations)
+        {
+            operations = bookOperations;
+        }
+        public async Task<IEnumerable<Book>> GetBook() => (await operations.GetBooks()).Select(book => book.toSchema());
     }
 }
